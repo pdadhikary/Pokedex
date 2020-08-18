@@ -1,0 +1,19 @@
+body {
+    font-family: 'roboto', sans-serif;
+}
+
+input {
+    font-family: 'roboto', sans-serif;
+}
+
+#header {
+    background-color: #8F221D;
+
+}
+
+#title {
+    font-family: 'Roboto Slab', serif;
+    color: #fff;
+    font-size: 2em;
+    padding: 15px;
+}

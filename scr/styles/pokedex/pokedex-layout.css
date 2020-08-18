@@ -1,0 +1,65 @@
+#pokedex {
+    grid-area: pokedex;
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: 50px auto;
+    grid-template-areas:
+        ". input ."
+        ". display .";
+}
+
+#input-section {
+    grid-area: input;
+    align-self: center;
+    justify-self: center;
+}
+
+#display-section {
+    grid-area: display;
+    display: grid;
+    grid-template-columns: 20px auto 20px;
+    grid-template-rows: 200px 50px auto;
+    grid-template-areas:
+        ". image ."
+        ". name ."
+        ". stats .";
+}
+
+#poke-img {
+    grid-area: image;
+    justify-self: center;
+    align-self: center;
+    width: 200px;
+}
+
+#poke-name {
+    grid-area: name;
+    justify-self: center;
+}
+
+#poke-stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 100px auto;
+    grid-template-areas:
+        "h types"
+        "w types"
+        "abilities abilities";
+}
+
+#poke-height {
+    grid-area: h;
+}
+
+#poke-weight {
+    grid-area: w;
+}
+
+#poke-types {
+    grid-area: types;
+}
+
+#poke-abilities {
+    grid-area: abilities;
+}

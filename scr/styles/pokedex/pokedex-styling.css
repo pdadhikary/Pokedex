@@ -1,0 +1,114 @@
+#display-section {
+    background-color: rgb(33, 86, 121);
+    border-radius: 13px;
+    color: #fff;
+}
+
+#query {
+    padding: 7px;
+    font-size: 1.1em;
+    border: solid 2px #8F221D;
+    border-radius: 10px;
+    outline: none;
+}
+
+#search {
+    padding: 10px;
+    font-size: 1.1em;
+    border: solid 2px #8F221D;
+    border-radius: 15px;
+    color: #8F221D;
+    cursor: pointer;
+    transition: all 100ms linear;
+}
+
+#search:hover {
+    background-color: #8F221D;
+    color: #fff;
+}
+
+#poke-img {
+    cursor: pointer;
+}
+
+#poke-name {
+    font-weight: 800;
+    font-size: 1.4em;
+}
+
+#poke-height {
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+#poke-height::before {
+    content: "Height";
+    font-weight: 500;
+    font-size: 0.8em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#poke-weight {
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+#poke-weight::before {
+    content: "Weight";
+    font-weight: 500;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#poke-abilities {
+    display: flex;
+    flex-direction: column;
+}
+
+#poke-abilities::before {
+    content: "Abilities";
+}
+
+#poke-types::before {
+    content: "Type";
+    display: block;
+}
+
+.poke-ability {
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+    font-size: 1.2em;
+    display: block;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.poke-ability::after {
+    content: "❓";
+}
+
+.ability-desc {
+    font-size: 0.7em;
+    font-weight: 500;
+}
+
+.poke-ability .ability-desc {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.poke-ability:hover .ability-desc {
+    visibility: visible;
+}
