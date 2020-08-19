@@ -26,8 +26,14 @@ export const getPokemon = (pokemon) =>
                 height: deciToFtAndIn(data.height),
                 weight: hectoTolbs(data.weight),
                 sprite: {
-                    front: data.sprites.front_default,
-                    back: data.sprites.back_default,
+                    front:
+                        data["sprites"]["versions"]["generation-v"][
+                            "black-white"
+                        ]["animated"]["front_default"],
+                    back:
+                        data["sprites"]["versions"]["generation-v"][
+                            "black-white"
+                        ]["animated"]["back_default"],
                 },
                 types,
                 abilities,
