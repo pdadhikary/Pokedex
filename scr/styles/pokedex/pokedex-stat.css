@@ -1,0 +1,35 @@
+.poke-stat {
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+#hp::before {
+    content: "HP: ";
+    font-weight: 500;
+}
+
+#attack::before {
+    content: "Atk: ";
+    font-weight: 500;
+}
+
+#defense::before {
+    content: "Def: ";
+    font-weight: 500;
+}
+
+#special-attack::before {
+    content: "Sp. Atk: ";
+    font-weight: 500;
+}
+
+#special-defense::before {
+    content: "Sp. Def: ";
+    font-weight: 500;
+}
+
+#speed::before {
+    content: "Speed: ";
+    font-weight: 500;
+}

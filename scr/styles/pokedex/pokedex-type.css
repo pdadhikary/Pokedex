@@ -1,13 +1,12 @@
 .poke-type {
     display: inline-block;
     width: 70px;
-    padding: 5px;
+    padding: 7px;
     border: solid 1px black;
     border-radius: 25px;
     text-align: center;
     font-weight: 500;
     margin-top: 10px;
-    margin-left: 10px;
 }
 
 .type-normal {

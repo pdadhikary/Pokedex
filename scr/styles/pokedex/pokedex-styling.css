@@ -62,13 +62,8 @@
     display: block;
 }
 
-#poke-abilities {
-    display: flex;
-    flex-direction: column;
-}
-
-#poke-abilities::before {
-    content: "Abilities";
+#poke-weight::after {
+    content: " lbs";
 }
 
 #poke-types::before {

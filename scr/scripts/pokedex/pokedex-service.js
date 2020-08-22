@@ -6,8 +6,9 @@ export const getPokemon = (pokemon) =>
         .then((data) => {
             const types = [];
             data.types.forEach((typeEntry, i) =>
-                types.push({ slot: i, name: typeEntry.type.name })
+                types.push({ slot: i, name: capitalize(typeEntry.type.name) })
             );
+            /*  Get Abilities
             const abilities = [];
             data.abilities.forEach((abilityEntry, i) =>
                 abilities.push(
@@ -21,22 +22,23 @@ export const getPokemon = (pokemon) =>
                         }))
                 )
             );
+            */
+            const stats = {};
+            data.stats.forEach((statItem) => {
+                stats[`${statItem.stat.name}`] = statItem.base_stat;
+            });
             return {
-                name: data.name,
+                id: data.id,
+                name: capitalize(data.name),
                 height: deciToFtAndIn(data.height),
                 weight: hectoTolbs(data.weight),
                 sprite: {
-                    front:
-                        data["sprites"]["versions"]["generation-v"][
-                            "black-white"
-                        ]["animated"]["front_default"],
-                    back:
-                        data["sprites"]["versions"]["generation-v"][
-                            "black-white"
-                        ]["animated"]["back_default"],
+                    portait: `https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`,
+                    front: data["sprites"]["front_default"],
+                    back: data["sprites"]["back_default"],
                 },
                 types,
-                abilities,
+                stats,
             };
         });
 
@@ -50,13 +52,16 @@ const deciToFtAndIn = (height) => {
     const ONE_FT_TO_IN = 12;
     let feet = height / ONE_FT_TO_DECI;
     let inch = (feet - Math.floor(feet)) * ONE_FT_TO_IN;
-    return { feet: Math.floor(feet), inch: Math.round(inch) };
+    return { feet: Math.floor(feet), inch: Math.floor(inch) };
 };
 
 const hectoTolbs = (weight) => {
     const ONE_LBS_TO_HECTO = 4.536;
     return (weight / ONE_LBS_TO_HECTO).toFixed(1);
 };
+
+const capitalize = (str) =>
+    str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
 // TODO: Create this model:
 /*

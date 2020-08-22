@@ -17,35 +17,49 @@
 #display-section {
     grid-area: display;
     display: grid;
-    grid-template-columns: 20px auto 20px;
-    grid-template-rows: 200px 50px auto;
+    grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
     grid-template-areas:
-        ". image ."
-        ". name ."
-        ". stats .";
+        "image image name name name"
+        "image image attr attr attr"
+        "image image stats stats stats"
+        "front back . . ."
+    ;
 }
 
 #poke-img {
     grid-area: image;
     justify-self: center;
     align-self: center;
-    width: 150px;
+    width: 300px;
+}
+
+#front {
+    grid-area: front;
+    justify-self: center;
+    align-self: center;
+}
+
+#back {
+    grid-area: back;
+    justify-self: center;
+    align-self: center;
 }
 
 #poke-name {
     grid-area: name;
+    align-self: center;
     justify-self: center;
 }
 
-#poke-stats {
-    grid-area: stats;
+#poke-attr {
+    grid-area: attr;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px 100px auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
     grid-template-areas:
-        "h types"
-        "w types"
-        "abilities abilities";
+        "h w types"
+    ;
 }
 
 #poke-height {
@@ -58,8 +72,64 @@
 
 #poke-types {
     grid-area: types;
+    display: flex;
+    flex-direction: column;
 }
 
-#poke-abilities {
-    grid-area: abilities;
+#poke-stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 768px) {
+
+    #poke-img {
+        width: 200px;
+    }
+
+    #pokedex {
+        grid-template-columns: auto;
+        grid-template-rows: 70px auto;
+        grid-template-areas:
+            "input"
+            "display";
+    }
+
+    #display-section {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 4fr 1fr 2fr 2fr;
+        grid-template-areas:
+            "image image image"
+            "name name name"
+            "attr attr attr"
+            "stats stats stats"
+        ;
+    }
+
+    #front {
+        display: none;
+    }
+
+    #back {
+        display: none;
+    }
+
+    #poke-height {
+        justify-self: center;
+    }
+
+    #poke-weight {
+        justify-self: center;
+    }
+
+    #poke-types {
+        justify-self: center;
+    }
+
+    .poke-stat {
+        align-self: center;
+        justify-self: center;
+    }
 }
