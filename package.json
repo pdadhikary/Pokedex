@@ -1,0 +1,25 @@
+{
+    "name": "pokedex",
+    "version": "1.0.0",
+    "description": "An example project for promise based programming and communicating with REST APIs.",
+    "type": "module",
+    "main": "./src/scripts/app.js",
+    "dependencies": {
+        "jquery-ui": "^1.12.1",
+        "rgbaster": "^2.1.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pdadhikary/Pokedex.git"
+    },
+    "author": "Deepta Adhikary",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/pdadhikary/Pokedex/issues"
+    },
+    "homepage": "https://github.com/pdadhikary/Pokedex#readme"
+}
