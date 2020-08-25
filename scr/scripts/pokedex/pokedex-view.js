@@ -6,6 +6,7 @@ export const displayPokemon = (pokemon) => {
     displayPokemonImg(pokemon);
     displayPokemonName(pokemon);
     displayPokemonInfo(pokemon);
+    $("#query").autocomplete();
 };
 
 export const displayPokemonImg = ({ sprite }) => {
