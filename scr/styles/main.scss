@@ -1,0 +1,9 @@
+// reset
+@import "./0_tools/reset.scss";
+
+// helpers
+@import "./1_helpers/variable.scss";
+
+// page
+@import "./2_page-layout/_page-layout.scss";
+@import "./3_pokedex-layout/_pokedex-layout.scss";
