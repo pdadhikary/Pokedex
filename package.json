@@ -1,23 +1,43 @@
 {
-  "name": "pokedex",
-  "version": "1.0.0",
-  "description": "An example project for promise based programming and communicating with REST APIs.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pdadhikary/Pokedex.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/pdadhikary/Pokedex/issues"
-  },
-  "homepage": "https://github.com/pdadhikary/Pokedex#readme",
-  "devDependencies": {
-    "gulp": "^4.0.2"
-  }
+    "name": "pokedex",
+    "version": "1.0.0",
+    "description": "An example project for promise based programming and communicating with REST APIs.",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pdadhikary/Pokedex.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/pdadhikary/Pokedex/issues"
+    },
+    "homepage": "https://github.com/pdadhikary/Pokedex#readme",
+    "devDependencies": {
+        "@babel/core": "^7.11.4",
+        "@babel/preset-env": "^7.11.0",
+        "@babel/preset-react": "^7.10.4",
+        "babelify": "^10.0.0",
+        "browser-sync": "^2.26.12",
+        "browserify": "^16.5.2",
+        "del": "^5.1.0",
+        "gulp": "^4.0.2",
+        "gulp-plumber": "^1.2.1",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^4.1.0",
+        "gulp-uglify": "^3.0.2",
+        "node-sass": "^4.14.1",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0"
+    },
+    "dependencies": {
+        "jquery": "^3.5.1",
+        "rgbaster": "^2.1.1",
+        "tinycolor": "0.0.1",
+        "tinycolor2": "^1.4.1"
+    }
 }

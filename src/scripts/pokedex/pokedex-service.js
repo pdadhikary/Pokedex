@@ -1,6 +1,6 @@
 const url = "https://pokeapi.co/api/v2/pokemon";
 
-export const getPokemon = (pokemon) =>
+const getPokemon = (pokemon) =>
     fetch(`${url}/${pokemon}`)
         .then((response) => response.json())
         .then((data) => {
@@ -42,7 +42,7 @@ export const getPokemon = (pokemon) =>
             };
         });
 
-export const getPokemonProperty = (pokemon, prop) =>
+const getPokemonProperty = (pokemon, prop) =>
     fetch(`${url}/${pokemon}`)
         .then((response) => response.json())
         .then((data) => data[prop]);
@@ -63,14 +63,4 @@ const hectoTolbs = (weight) => {
 const capitalize = (str) =>
     str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
-// TODO: Create this model:
-/*
-    {
-        name: "Charzard",
-        height: 5' 07", // API returns height in decimeter, coversion/formatting needed
-        weight: 199.5 // API returns weight in hectograms, coversion needed to lbs
-        abilitties: [<Promise>{ability:"blaze", desc: "..."}, <Promise>{ability: "solar-power", desc:"..."}],
-        types: ["fire", "flying"]
-        sprite: {front:"...", back:"..."}
-    }
-*/
+module.exports = { getPokemon, getPokemonProperty };

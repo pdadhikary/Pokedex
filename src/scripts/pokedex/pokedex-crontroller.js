@@ -1,7 +1,8 @@
-import { displayPokemon } from "./pokedex-view.js";
-import { getPokemon, getPokemonProperty } from "./pokedex-service.js";
+const $ = require("jquery");
+const { displayPokemon } = require("./pokedex-view.js");
+const { getPokemon } = require("./pokedex-service.js");
 
-export function PokedexController() {
+function PokedexController() {
     setSearchEventListener(() => {
         let query = getQueryString().toLowerCase();
         getPokemon(query).then(displayPokemon);
@@ -26,3 +27,5 @@ function getQueryString() {
 function setQueryEventListener(eventFn) {
     $("#query").keyup(eventFn);
 }
+
+module.exports = { PokedexController };

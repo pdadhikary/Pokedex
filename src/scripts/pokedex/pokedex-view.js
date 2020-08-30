@@ -1,28 +1,29 @@
-const display = $("#display-section");
+const $ = require("jquery");
+const rgbaster = require("rgbaster");
+const tinycolor = require("tinycolor2");
 
-export const displayPokemon = (pokemon) => {
-    console.log(pokemon);
-    display.empty();
+const displayPokemon = (pokemon) => {
+    console.log(`Here is the pokemon: `, pokemon);
+    $("#display-section").empty();
     displayPokemonImg(pokemon);
     displayPokemonName(pokemon);
     displayPokemonInfo(pokemon);
-    $("#query").autocomplete();
 };
 
-export const displayPokemonImg = ({ sprite }) => {
+const displayPokemonImg = ({ sprite }) => {
     const elem = $('<img id="poke-img">').attr("src", sprite.portait);
     const front = $('<img id="front">').attr("src", sprite.front);
     const back = $('<img id="back">').attr("src", sprite.back);
-    display.append(elem, front, back);
+    $("#display-section").append(elem, front, back);
     changeBackgroundColor(sprite.portait);
 };
 
-export const displayPokemonName = ({ name }) => {
+const displayPokemonName = ({ name }) => {
     const elem = $('<div id="poke-name"></div>').append(name.toUpperCase());
-    display.append(elem);
+    $("#display-section").append(elem);
 };
 
-export const displayPokemonInfo = ({ height, weight, stats, types }) => {
+const displayPokemonInfo = ({ height, weight, stats, types }) => {
     const typesElem = $('<div id="poke-types"></div>');
     types.forEach((type) =>
         typesElem.append(
@@ -52,10 +53,10 @@ export const displayPokemonInfo = ({ height, weight, stats, types }) => {
             $(`<div id=${name} class="poke-stat">${stats[name]}</div>`)
         );
     });
-    display.append(attrElem, statElem);
+    $("#display-section").append(attrElem, statElem);
 };
 
-export const changeBackgroundColor = (img) => {
+const changeBackgroundColor = (img) => {
     rgbaster(img, {
         ignore: ["rgb(255,255,255)", "rgb(0,0,0)"],
     }).then((colorArr) => {
@@ -64,8 +65,10 @@ export const changeBackgroundColor = (img) => {
         let textColor = tinycolor.mostReadable(bgColor.toHexString(), triad, {
             includeFallbackColors: true,
         });
-        display
+        $("#display-section")
             .css("background-color", bgColor.toHexString())
             .css("color", textColor.toHexString());
     });
 };
+
+module.exports = { displayPokemon };
