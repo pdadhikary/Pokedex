@@ -291,26 +291,6 @@ input {
   border-radius: 13px;
   color: #fff; }
 
-#query {
-  padding: 7px;
-  font-size: 1.1em;
-  border: solid 2px #8F221D;
-  border-radius: 10px;
-  outline: none; }
-
-#search {
-  padding: 10px;
-  font-size: 1.1em;
-  border: solid 2px #8F221D;
-  border-radius: 15px;
-  color: #8F221D;
-  cursor: pointer;
-  transition: all 100ms linear; }
-
-#search:hover {
-  background-color: #8F221D;
-  color: #fff; }
-
 #poke-img {
   cursor: pointer; }
 

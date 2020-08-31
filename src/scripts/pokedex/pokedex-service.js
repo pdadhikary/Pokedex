@@ -8,21 +8,6 @@ const getPokemon = (pokemon) =>
             data.types.forEach((typeEntry, i) =>
                 types.push({ slot: i, name: capitalize(typeEntry.type.name) })
             );
-            /*  Get Abilities
-            const abilities = [];
-            data.abilities.forEach((abilityEntry, i) =>
-                abilities.push(
-                    fetch(abilityEntry.ability.url)
-                        .then((response) => response.json())
-                        .then((abilityData) => ({
-                            slot: i,
-                            name: abilityData.name,
-                            desc:
-                                abilityData.flavor_text_entries[0].flavor_text,
-                        }))
-                )
-            );
-            */
             const stats = {};
             data.stats.forEach((statItem) => {
                 stats[`${statItem.stat.name}`] = statItem.base_stat;
@@ -47,6 +32,11 @@ const getPokemonProperty = (pokemon, prop) =>
         .then((response) => response.json())
         .then((data) => data[prop]);
 
+const getAllPokemonNames = () =>
+    fetch("https://pokeapi.co/api/v2/pokemon/?limit=649&offset=0")
+        .then((response) => response.json())
+        .then((data) => data.results.map((entry) => entry.name));
+
 const deciToFtAndIn = (height) => {
     const ONE_FT_TO_DECI = 3.048;
     const ONE_FT_TO_IN = 12;
@@ -63,4 +53,4 @@ const hectoTolbs = (weight) => {
 const capitalize = (str) =>
     str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
-module.exports = { getPokemon, getPokemonProperty };
+module.exports = { getPokemon, getPokemonProperty, getAllPokemonNames };

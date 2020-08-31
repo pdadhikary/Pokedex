@@ -1,6 +1,23 @@
 const $ = require("jquery");
+const tph = require("jquery-typeahead");
 const rgbaster = require("rgbaster");
 const tinycolor = require("tinycolor2");
+
+const displayAutoComplete = (data) => {
+    $.typeahead({
+        input: ".js-typeahead",
+        order: "desc",
+        hint: true,
+        source: {
+            data: data,
+        },
+        callback: {
+            onInit: function (node) {
+                console.log("Typeahead Initiated on", node, "with", data);
+            },
+        },
+    });
+};
 
 const displayPokemon = (pokemon) => {
     console.log(`Here is the pokemon: `, pokemon);
@@ -71,4 +88,4 @@ const changeBackgroundColor = (img) => {
     });
 };
 
-module.exports = { displayPokemon };
+module.exports = { displayAutoComplete, displayPokemon };

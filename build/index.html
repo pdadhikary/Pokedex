@@ -13,6 +13,7 @@
             href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet" href="./css/jquery.typeahead.min.css" />
         <link rel="stylesheet" href="./css/index.min.css" />
         <script type="text/javascript" src="./js/index.min.js"></script>
     </head>
@@ -24,8 +25,27 @@
             </div>
             <div id="pokedex">
                 <div id="input-section">
-                    <input id="query" type="text" placeholder="Charizard" />
-                    <div id="search">Search</div>
+                    <form>
+                        <div class="typeahead__container">
+                            <div class="typeahead__field">
+                                <div class="typeahead__query">
+                                    <input
+                                        id="query"
+                                        class="js-typeahead"
+                                        name="q"
+                                        autocomplete="off"
+                                    />
+                                </div>
+                                <div class="typeahead__button">
+                                    <button id="search">
+                                        <span
+                                            class="typeahead__search-icon"
+                                        ></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div id="display-section"></div>
             </div>

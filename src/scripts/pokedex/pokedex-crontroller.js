@@ -1,9 +1,11 @@
 const $ = require("jquery");
-const { displayPokemon } = require("./pokedex-view.js");
-const { getPokemon } = require("./pokedex-service.js");
+const { displayAutoComplete, displayPokemon } = require("./pokedex-view.js");
+const { getPokemon, getAllPokemonNames } = require("./pokedex-service.js");
 
 function PokedexController() {
-    setSearchEventListener(() => {
+    // Event Handlers
+    setSearchEventListener((e) => {
+        e.preventDefault();
         let query = getQueryString().toLowerCase();
         getPokemon(query).then(displayPokemon);
     });
@@ -13,7 +15,10 @@ function PokedexController() {
             $("#search").click();
         }
     });
+
+    // init state
     getPokemon("charizard").then(displayPokemon);
+    getAllPokemonNames().then(displayAutoComplete);
 }
 
 function setSearchEventListener(eventFn) {

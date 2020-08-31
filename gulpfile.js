@@ -11,6 +11,7 @@ const browserSync = require("browser-sync");
 
 const origin = "src";
 const destination = "build";
+const modules = "node_modules";
 
 function clean(done) {
     del.sync([`${destination}/**`, `!${destination}`]);
@@ -20,7 +21,7 @@ function clean(done) {
 function watcher(done) {
     watch(`${origin}/**/*.html`).on("change", series(html, browserSync.reload));
     watch(`${origin}/**/*.js`).on("change", series(js, browserSync.reload));
-    watch(`${origin}/**/*.sass`).on("change", series(css, browserSync.reload));
+    watch(`${origin}/**/*.scss`).on("change", series(css, browserSync.reload));
     done();
 }
 
@@ -71,6 +72,10 @@ function css(done) {
             })
         )
         .pipe(dest(`${destination}/css/`));
+
+    src(`${modules}/jquery-typeahead/dist/jquery.typeahead.min.css`).pipe(
+        dest(`${destination}/css/`)
+    );
     done();
 }
 
