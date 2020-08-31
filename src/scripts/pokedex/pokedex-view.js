@@ -6,7 +6,7 @@ const tinycolor = require("tinycolor2");
 const displayAutoComplete = (data) => {
     $.typeahead({
         input: ".js-typeahead",
-        order: "desc",
+        order: "asc",
         hint: true,
         source: {
             data: data,
@@ -75,6 +75,7 @@ const displayPokemonInfo = ({ height, weight, stats, types }) => {
 
 const changeBackgroundColor = (img) => {
     rgbaster(img, {
+        scale: 0.5,
         ignore: ["rgb(255,255,255)", "rgb(0,0,0)"],
     }).then((colorArr) => {
         let bgColor = tinycolor(colorArr[0].color);
