@@ -12,7 +12,7 @@ function PokedexController() {
     setQueryEventListener((e) => {
         if (e.keyCode === 13) {
             e.preventDefault();
-            $("#search").click();
+            $("#search").trigger("click");
         }
     });
 
