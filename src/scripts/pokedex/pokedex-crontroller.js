@@ -22,7 +22,7 @@ function PokedexController() {
 }
 
 function setSearchEventListener(eventFn) {
-    $("#search").click(eventFn);
+    $("#search").trigger("click", eventFn);
 }
 
 function getQueryString() {
@@ -30,7 +30,7 @@ function getQueryString() {
 }
 
 function setQueryEventListener(eventFn) {
-    $("#query").keyup(eventFn);
+    $("#query").trigger("keyup", eventFn);
 }
 
 module.exports = { PokedexController };
