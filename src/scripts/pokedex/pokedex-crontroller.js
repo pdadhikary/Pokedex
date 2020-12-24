@@ -3,12 +3,12 @@ const { displayAutoComplete, displayPokemon } = require("./pokedex-view.js");
 const { getPokemon, getAllPokemonNames } = require("./pokedex-service.js");
 
 function PokedexController() {
-    // Event Handlers
     setSearchEventListener((e) => {
         e.preventDefault();
         let query = getQueryString().toLowerCase();
         getPokemon(query).then(displayPokemon);
     });
+
     setQueryEventListener((e) => {
         if (e.keyCode === 13) {
             e.preventDefault();
@@ -19,10 +19,11 @@ function PokedexController() {
     // init state
     getPokemon("charizard").then(displayPokemon);
     getAllPokemonNames().then(displayAutoComplete);
+    console.log("Hello!");
 }
 
 function setSearchEventListener(eventFn) {
-    $("#search").trigger("click", eventFn);
+    $("#search").on("click", eventFn);
 }
 
 function getQueryString() {
@@ -30,7 +31,7 @@ function getQueryString() {
 }
 
 function setQueryEventListener(eventFn) {
-    $("#query").trigger("keyup", eventFn);
+    $("#query").on("keydown", eventFn);
 }
 
 module.exports = { PokedexController };
