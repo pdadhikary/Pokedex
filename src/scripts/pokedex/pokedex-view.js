@@ -3,6 +3,7 @@ const tph = require("jquery-typeahead");
 const rgbaster = require("rgbaster");
 const tinycolor = require("tinycolor2");
 
+// Enables Autocomplete functionality
 const displayAutoComplete = (data) => {
     $.typeahead({
         input: ".js-typeahead",
@@ -19,6 +20,10 @@ const displayAutoComplete = (data) => {
     });
 };
 
+/**
+ * The main driver function in displaying the pokemon.
+ * @param {*} pokemon aggregate information about the pokemon
+ */
 const displayPokemon = (pokemon) => {
     console.log(`Here is the pokemon: `, pokemon);
     $("#display-section").empty();
@@ -27,6 +32,10 @@ const displayPokemon = (pokemon) => {
     displayPokemonInfo(pokemon);
 };
 
+/**
+ * Displays the avatar of the pokemon.
+ * @param {*} sprite image of the pokemon
+ */
 const displayPokemonImg = ({ sprite }) => {
     const elem = $('<img id="poke-img">').attr("src", sprite.portait);
     const front = $('<img id="front">').attr("src", sprite.front);
@@ -40,6 +49,15 @@ const displayPokemonName = ({ name }) => {
     $("#display-section").append(elem);
 };
 
+/**
+ * Displays the given info of the pokemon.
+ *
+ * @param {String} height height of the pokemon in feet and inches
+ * @param {Number} height weight of the pokemon in pounds
+ * @param {*} stats stats of the pokemon
+ * @param {*} types type of the pokemon
+ *
+ */
 const displayPokemonInfo = ({ height, weight, stats, types }) => {
     const typesElem = $('<div id="poke-types"></div>');
     types.forEach((type) =>
@@ -73,6 +91,12 @@ const displayPokemonInfo = ({ height, weight, stats, types }) => {
     $("#display-section").append(attrElem, statElem);
 };
 
+/**
+ * Analyzes the given image and sets the background to the
+ * color most complementary to the pokemon.
+ *
+ * @param {*} img image of the pokemon.
+ */
 const changeBackgroundColor = (img) => {
     rgbaster(img, {
         scale: 0.5,
