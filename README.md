@@ -5,7 +5,7 @@ An example project for promise based programming and communicating with REST API
 Project Link: https://pdadhikary.github.io/Pokedex/build/
 
 ## Resources
-- (PokéAPI)[https://pokeapi.co/]
+- [PokéAPI](https://pokeapi.co/)
 
 ## What I Learned
 
