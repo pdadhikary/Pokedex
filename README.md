@@ -4,6 +4,9 @@ An example project for promise based programming and communicating with REST API
 
 Project Link: https://pdadhikary.github.io/Pokedex/build/
 
+## Resources
+- (PokéAPI)[https://pokeapi.co/]
+
 ## What I Learned
 
 - The basics of creating my own MVC framework from scratch in vanilla JavaScript.
